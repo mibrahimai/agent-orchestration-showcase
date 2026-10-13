@@ -103,7 +103,7 @@ export default function ShowcaseHomePage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 px-3 py-1 rounded-full text-xs font-mono text-indigo-300">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>100% Hollow Portfolio Showcase & Educational Hub</span>
+              <span>Architecture Showcase & Interactive Sizing Engine</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
               Continuous Cloud GPU Pooling & <br/>

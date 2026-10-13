@@ -1,10 +1,5 @@
 # ⚡ Distributed Agent Orchestrator & Colab GPU Mesh - Showcase
 
-> 🔒 **Architecture Note (Portfolio Strategy):** 
-> To protect core intellectual property, this repository acts as a **100% Hollow Showcase & Educational Hub**. The live application—including private FastAPI orchestration daemons, multi-account PKCE Google Colab credential rotators, headless WSL automation hooks, and custom PyTorch training kernels—is securely maintained in a private repository and deployed on private infrastructure.
-
----
-
 **Continuous, Zero-Cost Cloud GPU Pooling for Distributed AI Fine-Tuning & Multi-Agent Inference.**
 
 A self-healing, multi-account compute fabric that bypasses Google Colab's ~12-hour VM timeouts and GPU quota limits. The system rotates active sessions across a pool of Google accounts, mounts shared cloud storage for persistent checkpointing, and dynamically resumes training or inference jobs without dropping a single step or losing progress.
