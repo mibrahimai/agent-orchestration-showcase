@@ -43,7 +43,7 @@ export default function TutorialPage() {
   const fullTrainingVram = (paramsB * 16.0) + (paramsB * 2.0) + cudaOverhead;
 
   const getRecommendedGpu = (vram: number) => {
-    if (vram <= 14.5) return { name: 'NVIDIA Tesla T4 (15 GB)', badge: 'FREE Colab / ~$0.20/hr', color: 'emerald' };
+    if (vram <= 14.5) return { name: 'NVIDIA Tesla T4 (15 GB)', badge: 'Cloud T4 / ~$0.20/hr', color: 'emerald' };
     if (vram <= 23.5) return { name: 'NVIDIA RTX 4090 / L4 (24 GB)', badge: '~$0.50 - $0.70/hr', color: 'indigo' };
     if (vram <= 39.0) return { name: 'NVIDIA A100 (40 GB)', badge: '~$1.50 - $2.00/hr', color: 'blue' };
     if (vram <= 78.0) return { name: 'NVIDIA A100 / H100 (80 GB)', badge: '~$2.50 - $3.50/hr', color: 'purple' };
@@ -310,7 +310,7 @@ export default function TutorialPage() {
                       Freezes 99.8% of base weights in 4-bit. Trains small 16-bit LoRA adapter matrices.
                     </p>
                     <div className="mt-3 pt-3 border-t border-white/10 text-[11px] text-gray-300 flex items-center justify-between">
-                      <span>Google Colab T4 Compatible:</span>
+                      <span>Tesla T4 (15GB) Compatible:</span>
                       <span className={`font-mono font-bold ${qloraVram <= 14.5 ? 'text-emerald-400' : 'text-rose-400'}`}>
                         {qloraVram <= 14.5 ? 'YES (FITS)' : 'EXCEEDS 15GB'}
                       </span>
@@ -559,7 +559,7 @@ export default function TutorialPage() {
                   </p>
                   <h4 className="text-base font-semibold text-white mt-4">QLoRA:</h4>
                   <p>
-                    Compresses the base model into 4-bit (NormalFloat4), freezes it, and trains 16-bit LoRA adapters. This is why our live Google Colab training benchmark is running on a free Tesla T4 right now without crashing!
+                    Compresses the base model into 4-bit (NormalFloat4), freezes it, and trains 16-bit LoRA adapters. This allows fine-tuning 14B models on affordable 15GB GPUs (like the Tesla T4) without memory crashes!
                   </p>
                 </div>
               )}

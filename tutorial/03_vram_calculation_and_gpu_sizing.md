@@ -29,7 +29,7 @@ Commit these three numbers to memory:
 ### Example 1: Qwen 2.5 1.5B (Loaded in 16-bit Half Precision)
 - **Math:** $1.54 \text{ Billion} \times 2.0 \text{ GB} = \mathbf{3.08\text{ GB}}$ for weights.
 - **Add overhead:** $3.08 \times 1.2 \approx \mathbf{3.7\text{ GB}}$ total VRAM.
-- **Hardware fit:** Fits on virtually any GPU, including budget 6GB or 8GB cards and free Google Colab T4 (15GB).
+- **Hardware fit:** Fits on virtually any GPU, including budget 6GB or 8GB cards or entry-level cloud GPUs (15GB).
 
 ---
 
@@ -43,7 +43,7 @@ Commit these three numbers to memory:
 #### At 4-bit:
 - **Math:** $14.7 \text{ Billion} \times 0.5 \text{ GB} = \mathbf{7.35\text{ GB}}$ for weights.
 - **Add overhead (KV cache for 4k context):** $7.35 + 2.5 \text{ GB} \approx \mathbf{9.85\text{ GB}}$ total VRAM.
-- **Hardware fit:** **Fits comfortably inside our 14.56 GB Tesla T4 on Google Colab with ~4.7 GB of VRAM to spare!**
+- **Hardware fit:** **Fits comfortably inside a 15 GB Tesla T4 with ~4.7 GB of VRAM to spare!**
 
 ---
 
@@ -79,7 +79,7 @@ When recommending cloud infrastructure to a client, reference this tier list:
 
 | GPU Model | VRAM | Typical Cloud Cost / Hour | Best Used For |
 | :--- | :--- | :--- | :--- |
-| **Tesla T4** | 15 GB | **$0 (Colab Free)** or ~$0.20/hr | Testing, prototyping, 1.5B - 14B (4-bit) |
+| **Tesla T4** | 15 GB | ~$0.20/hr (Cloud / AWS g4dn) | Testing, prototyping, 1.5B - 14B (4-bit) |
 | **RTX 3090 / 4090** | 24 GB | ~$0.35 - $0.50/hr (RunPod/Vast) | High-speed local dev, up to 32B (4-bit) |
 | **NVIDIA L4** | 24 GB | ~$0.65/hr (GCP/AWS) | Modern production inference (Ada Lovelace) |
 | **NVIDIA A10G** | 24 GB | ~$1.00/hr (AWS g5 instances) | Standard enterprise inference tier |

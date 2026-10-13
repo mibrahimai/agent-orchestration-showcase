@@ -88,7 +88,7 @@ If rank $r = 16$:
       (Fits completely inside a 15GB Tesla T4!)
 ```
 
-This is the exact reason why our live Google Colab training benchmark (`train_lora_checkpointed.py`) is able to train on a free Tesla T4 GPU right now without running out of memory!
+This is the exact reason why 4-bit QLoRA makes fine-tuning 14B models possible on accessible 15GB GPUs (like the Tesla T4) without running out of memory!
 
 ---
 

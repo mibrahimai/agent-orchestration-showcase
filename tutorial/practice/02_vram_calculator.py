@@ -59,7 +59,7 @@ def calculate_hardware(params_b, bits, context_tokens=4096):
 def recommend_gpu(vram_gb):
     """Recommend hardware based on required VRAM."""
     if vram_gb <= 14.5:
-        return "NVIDIA Tesla T4 (15 GB) [FREE on Colab / ~$0.20/hr]"
+        return "NVIDIA Tesla T4 (15 GB) [Cloud T4 / ~$0.20/hr]"
     elif vram_gb <= 23.5:
         return "NVIDIA RTX 4090 (24 GB) or NVIDIA L4 (24 GB) [~$0.50 - $0.70/hr]"
     elif vram_gb <= 39.0:
