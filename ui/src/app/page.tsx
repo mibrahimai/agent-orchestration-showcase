@@ -45,7 +45,7 @@ export default function ShowcaseHomePage() {
   const fullTrainingVram = (paramsB * 16.0) + (paramsB * 2.0) + cudaOverhead;
 
   const getRecommendedGpu = (vram: number) => {
-    if (vram <= 14.5) return { name: 'NVIDIA Tesla T4 (15 GB)', badge: 'FREE Colab / ~$0.20/hr', color: 'emerald' };
+    if (vram <= 14.5) return { name: 'NVIDIA Tesla T4 (15 GB)', badge: 'Cloud T4 / ~$0.20/hr', color: 'emerald' };
     if (vram <= 23.5) return { name: 'NVIDIA RTX 4090 / L4 (24 GB)', badge: '~$0.50 - $0.70/hr', color: 'indigo' };
     if (vram <= 39.0) return { name: 'NVIDIA A100 (40 GB)', badge: '~$1.50 - $2.00/hr', color: 'blue' };
     if (vram <= 78.0) return { name: 'NVIDIA A100 / H100 (80 GB)', badge: '~$2.50 - $3.50/hr', color: 'purple' };
@@ -103,40 +103,40 @@ export default function ShowcaseHomePage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 px-3 py-1 rounded-full text-xs font-mono text-indigo-300">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Architecture Showcase & Interactive Sizing Engine</span>
+              <span>Auditable Multi-Step Agent Orchestrator & Mission Control</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              Continuous Cloud GPU Pooling & <br/>
+              Autonomous Multi-Step AI Systems <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
-                AI Architecture Sizing Academy
+                Built for Auditability, Oversight & Cost Control
               </span>
             </h1>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-              Bypassing Google Colab 12-hour session timeouts via autonomous multi-account rotation, persistent shared storage checkpointing, and dynamic failover recovery. Completed a live 10,000-step QLoRA fine-tuning benchmark on cloud Tesla T4 hardware.
+              A task-completion state engine that decomposes complex goals into observable steps, enforces strict cost ceilings, integrates human approval gates on consequential actions, and logs full JSON audit trails.
             </p>
           </div>
 
-          {/* Live Telemetry Highlights */}
+          {/* Core Architectural Pillars */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-white/10 font-mono text-xs">
             <div className="bg-black/30 p-3 rounded-xl border border-white/5">
-              <div className="text-gray-500 text-[10px]">ROTATION POOL</div>
-              <div className="text-white font-bold text-sm mt-0.5">Dual-Account PKCE</div>
-              <div className="text-[10px] text-emerald-400 mt-0.5">Automated Quota Cycling</div>
+              <div className="text-gray-500 text-[10px]">EXECUTION SAFETY</div>
+              <div className="text-white font-bold text-sm mt-0.5">Step & Cost Ceilings</div>
+              <div className="text-[10px] text-emerald-400 mt-0.5">Runaway Loop Protection</div>
             </div>
             <div className="bg-black/30 p-3 rounded-xl border border-white/5">
-              <div className="text-gray-500 text-[10px]">STORAGE POOL</div>
-              <div className="text-white font-bold text-sm mt-0.5">Colab-Shared-Storage</div>
-              <div className="text-[10px] text-indigo-300 mt-0.5">DriveFS Auto-Mirror</div>
+              <div className="text-gray-500 text-[10px]">HUMAN-IN-THE-LOOP</div>
+              <div className="text-white font-bold text-sm mt-0.5">Approval Gates</div>
+              <div className="text-[10px] text-indigo-300 mt-0.5">State-Preserving Resume</div>
             </div>
             <div className="bg-black/30 p-3 rounded-xl border border-white/5">
-              <div className="text-gray-500 text-[10px]">BENCHMARK RUN</div>
-              <div className="text-white font-bold text-sm mt-0.5">10,000 / 10,000 Steps</div>
-              <div className="text-[10px] text-emerald-400 mt-0.5">100% Completed</div>
+              <div className="text-gray-500 text-[10px]">OBSERVABILITY</div>
+              <div className="text-white font-bold text-sm mt-0.5">Full JSON Audit Trail</div>
+              <div className="text-[10px] text-emerald-400 mt-0.5">Replayable Step History</div>
             </div>
             <div className="bg-black/30 p-3 rounded-xl border border-white/5">
-              <div className="text-gray-500 text-[10px]">BENCHMARK GPU</div>
-              <div className="text-white font-bold text-sm mt-0.5">Tesla T4 (15 GB)</div>
-              <div className="text-[10px] text-indigo-300 mt-0.5">5.14 GB Active VRAM</div>
+              <div className="text-gray-500 text-[10px]">AI SIZING ENGINE</div>
+              <div className="text-white font-bold text-sm mt-0.5">0.5B to 70B Models</div>
+              <div className="text-[10px] text-indigo-300 mt-0.5">Real-Time VRAM & Cost Math</div>
             </div>
           </div>
         </section>

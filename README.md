@@ -1,20 +1,42 @@
-# ⚡ Distributed Agent Orchestrator & Colab GPU Mesh - Showcase
+# ⚡ Autonomous Agent Orchestrator & Execution Engine - Showcase
 
-**Continuous, Zero-Cost Cloud GPU Pooling for Distributed AI Fine-Tuning & Multi-Agent Inference.**
+**Multi-step AI systems your team can actually audit, correct, and trust.**
 
-A self-healing, multi-account compute fabric that bypasses Google Colab's ~12-hour VM timeouts and GPU quota limits. The system rotates active sessions across a pool of Google accounts, mounts shared cloud storage for persistent checkpointing, and dynamically resumes training or inference jobs without dropping a single step or losing progress.
+A resilient task-completion state engine that decomposes complex goals into observable steps, executes typed tools, enforces strict cost ceilings, and integrates human-in-the-loop approval gates before consequential actions.
 
 🌐 **Interactive Web App & GPU Sizing Academy:** [https://mibrahimai.github.io/agent-orchestration-showcase/](https://mibrahimai.github.io/agent-orchestration-showcase/)
 
 ---
 
-## 🚀 System Highlights
+## 🎯 Positioning & Core Philosophy
 
-- **48-Hour Continuous GPU Pooling:** Automatically cycles active sessions across authenticated Google accounts (`account_1`, `account_2`, ...) using PKCE OAuth tokens and headless CLI drivers.
-- **Shared Storage Persistence:** Mirrored Google Drive checkpointing pool (`Colab-Shared-Storage`) ensures weights, optimizer states, and dataset pointers persist seamlessly across VM terminations.
-- **Dynamic Failover Recovery:** Autonomous watcher daemons detect cloud runtime disconnects, initiate standby worker spin-ups within 90 seconds, and resume training from the latest checkpoint.
-- **Stress-Tested Benchmark:** Successfully completed a continuous **10,000-step QLoRA fine-tuning benchmark** on cloud NVIDIA Tesla T4 hardware with zero data loss and stable training loss convergence.
-- **Mission Control Telemetry:** Real-time web dashboard displaying worker mesh health, account quota pools, active VRAM usage, loss curves, and instantaneous failover event feeds.
+> Serious enterprise buyers don't want a "magic" autonomous black box that burns API credits in runaway loops. They want multi-step automation that can be **audited, corrected, and halted**.
+
+- **Not a Chatbot:** Built for mission completion, tool orchestration, and artifact generation—not conversational back-and-forth.
+- **Failures Made Boring:** Individual step retries with exponential backoff, partial successes (e.g., 8/10 items completed, 2 escalated), and deterministic state preservation.
+- **Human-in-the-Loop by Design:** Consequential mutations (sending external communications, modifying databases, releasing funds) pause execution, notify a human reviewer, and resume cleanly without losing context.
+
+---
+
+## 🚀 Key Architectural Pillars
+
+### 1. Deterministic Planning & Tool Execution
+- Strict input/output validation on all registered tools with robust error boundaries.
+- Iterative observe-reason-act loops with adaptive failure recovery.
+- Strict step limits and hard dollar cost ceilings to eliminate infinite loop risk.
+
+### 2. Full Audit Trail & Observability
+- Every step recorded as structured JSON: decision rationale, tool inputs, responses, token usage, exact execution cost, and latency.
+- Full run replayability and the ability to re-run from an arbitrary step without paying for earlier steps twice.
+- File and data artifacts linked directly to their generating execution step.
+
+### 3. Human-in-the-Loop Approval Gates
+- Policy-driven approval triggers on high-impact actions.
+- Clean pause-and-resume protocol that preserves memory states and execution graphs.
+- Direct human intervention: operators can edit intermediate step outputs before resuming downstream agents.
+
+### 4. Mission Control Dashboard
+- Real-time Next.js web console showing active runs, step execution timelines, cost accumulators, live logs, and approval prompts.
 
 ---
 
@@ -22,33 +44,44 @@ A self-healing, multi-account compute fabric that bypasses Google Colab's ~12-ho
 
 ```mermaid
 flowchart TD
-    subgraph Local Control Plane
-        DAEMON[🤖 Failover Watcher Daemon]
-        ORCH[🧠 FastAPI Orchestrator]
-        UI[🖥️ Mission Control Web UI]
+    User([👨‍💼 Operator / API Client]) --> |Submit High-Level Goal| ORCH[🧠 Agent Orchestrator]
+
+    subgraph Orchestration Engine
+        PLAN[📋 Planner & Step Decomposer]
+        EXEC[⚡ Step Executor & Tool Dispatcher]
+        GUARD[🛡️ Budget & Step Ceiling Guardrail]
+        AUDIT[📊 JSON Audit Logger & Artifact Store]
     end
 
-    subgraph Multi-Account Cloud GPU Pool
-        VM1["☁️ Account 1 (Active)\nTesla T4 GPU (15GB)\nTraining / Inference"]
-        VM2["☁️ Account 2 (Standby)\nTesla T4 GPU (Hot Standby)\nReady for Immediate Spin-up"]
+    subgraph Tool Mesh
+        T1[🔍 Web / Vector Search]
+        T2[📄 Document Extractor]
+        T3[🗄️ Database Query Runner]
+        T4[📤 External API Dispatcher]
     end
 
-    subgraph Persistent Storage Pool
-        DRIVE[📁 Shared Google Drive\n'Colab-Shared-Storage'\nSynced LoRA Checkpoints]
+    subgraph Human Oversight
+        GATE{"⚠️ Approval Required?"}
+        HUMAN[👤 Operator Review & Edit]
     end
 
-    UI --> |Real-time Telemetry| ORCH
-    DAEMON --> |Heartbeat Monitor| VM1
-    DAEMON -.-> |Automated Failover Trigger| VM2
-    VM1 --> |Checkpoints every 50 steps| DRIVE
-    VM2 -.-> |Resumes from latest checkpoint| DRIVE
+    ORCH --> PLAN
+    PLAN --> EXEC
+    EXEC --> GUARD
+    GUARD --> GATE
+    GATE -->|Yes: Consequential Action| HUMAN
+    HUMAN -->|Approved / Corrected| EXEC
+    GATE -->|No: Safe Action| ToolMesh[Tool Mesh Execution]
+    EXEC --> ToolMesh
+    ToolMesh --> AUDIT
+    AUDIT --> |Telemetry & State| UI[🖥️ Mission Control UI]
 ```
 
 ---
 
-## 📚 AI Architecture & GPU Sizing Academy
+## 📚 AI Architecture & Hardware Sizing Academy
 
-This repository also contains the complete **AI Engineering Mastery Curriculum** to calculate memory budgets and hardware costs for enterprise LLMs:
+This repository also includes the complete **AI Engineering Mastery Curriculum** to calculate memory budgets and hardware costs for enterprise LLMs:
 
 | Module | Topic | Key Takeaway |
 | :--- | :--- | :--- |
